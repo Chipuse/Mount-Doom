@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: bc5605eef4cfd9e44bb5ea261f2051a7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Darker Grotesque
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 932c105cfbfc121449560140575d361e, type: 3}
+  - {fileID: 12800000, guid: cbbde23a01da7dd41a86ea7f49899f18, type: 3}
+  - {fileID: 12800000, guid: 8919d4f1be228e14484c84de9f95299a, type: 3}
+  - {fileID: 12800000, guid: 16dd098c745f39e48a348fecdb96f59e, type: 3}
+  - {fileID: 12800000, guid: 1245c4c494d45614baefe4bc74737d98, type: 3}
+  - {fileID: 12800000, guid: e64bf75f13fd21f4fa636feb07ad359d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93cc1b3d6d40fb449525e1cc58b4765, type: 3}
+  m_Name: LayoutList
+  m_EditorClassIdentifier: 
+  layouts:
+  - name: StraightAhead
+    layoutPrefab: {fileID: 2086558566736342541, guid: 03153aa7fab7b6f4dadff296a6c5005c, type: 3}
+  - name: TheBigCurve
+    layoutPrefab: {fileID: 2086558566736342541, guid: c228ed75a234aad419cae9c00a205c25, type: 3}
+  - name: TheS
+    layoutPrefab: {fileID: 2086558566736342541, guid: 9f5abdc1cd85d3a42921382c17bde081, type: 3}
+  - name: TheSplit
+    layoutPrefab: {fileID: 2086558566736342541, guid: 9a44554cd81346541bfc47887660c299, type: 3}
+  - name: TheC
+    layoutPrefab: {fileID: 2086558566736342541, guid: 778e6e8dca027ef498a34030640b5b73, type: 3}
+  - name: Snail
+    layoutPrefab: {fileID: 2086558566736342541, guid: c213282576540e14dbcf03a7ce3b6ec7, type: 3}
+  - name: Umwege
+    layoutPrefab: {fileID: 2086558566736342541, guid: 66bfcbb6a923ef54a92102129e72aa5d, type: 3}
+  - name: Branching
+    layoutPrefab: {fileID: 2086558566736342541, guid: a51fe78312a21e5459362c303935a2d4, type: 3}
+  - name: Batched
+    layoutPrefab: {fileID: 2086558566736342541, guid: d06d1ad596784ec4fadfa6bea052ddb0, type: 3}
+  - name: Batched2
+    layoutPrefab: {fileID: 2086558566736342541, guid: 40b1ee5064e70d3478744195a856c68c, type: 3}
+  - name: Diamond
+    layoutPrefab: {fileID: 2086558566736342541, guid: 80efe8f495ee5804297ddd6c2b03e22a, type: 3}

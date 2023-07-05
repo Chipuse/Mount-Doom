@@ -1,0 +1,637 @@
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "",
+        "m_EditorClassIdentifier": "",
+        "ToolbarIndex": 0,
+        "m_iOSNotificationSettingsValues": {
+            "m_Keys": [
+                "UnityNotificationRequestAuthorizationOnAppLaunch",
+                "UnityNotificationDefaultAuthorizationOptions",
+                "UnityAddRemoteNotificationCapability",
+                "UnityNotificationRequestAuthorizationForRemoteNotificationsOnAppLaunch",
+                "UnityRemoteNotificationForegroundPresentationOptions",
+                "UnityUseAPSReleaseEnvironment",
+                "UnityUseLocationNotificationTrigger"
+            ],
+            "m_Values": [
+                "True",
+                "7",
+                "False",
+                "False",
+                "-1",
+                "False",
+                "False"
+            ]
+        },
+        "m_AndroidNotificationSettingsValues": {
+            "m_Keys": [
+                "UnityNotificationAndroidRescheduleOnDeviceRestart",
+                "UnityNotificationAndroidUseCustomActivity",
+                "UnityNotificationAndroidCustomActivityString"
+            ],
+            "m_Values": [
+                "False",
+                "False",
+                "com.unity3d.player.UnityPlayerActivity"
+            ]
+        },
+        "DrawableResources": [
+            {
+                "Id": "smol",
+                "Type": 0,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "b03f0409c07bf2a42a8b923ce2b9eca4",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "helia",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "0251be618938b214aa931fb4d1d66e06",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "cinder",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "006de6c3b21607243b93c6fce660279b",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "aqua",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "a26a6d800904375448699b46b841afe5",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "agnus",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "2235664c273539b41a94be5d53783335",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "ann",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "6b6d2ddc4c38d6b44bc825b120c9bf70",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "axel",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "9c3bf8d5c8730d3449439bfab5cd3ef9",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "bauter",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "8092446c55cda7e40bd7b12aa419611b",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "beisal",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "e38da50a15b069e4d81081089eb7af8b",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "birb",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "bab61212657c4b44ca4eb06954223e4e",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "bones",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "6ba71d1bee22b9a4382d67be5b4e9e2c",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "brad",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "f69e18cdc99b79d498fb1faaae987862",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "brooke",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "914e5abd81f9a25478208b87ddc4a2d2",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "cordelia",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "78317b25e8fe1a84eadfa2d50c693f5f",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "fink",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "1ca0fc1df593b834790a9b6046fd05f9",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "geraldine",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "96905a3ea1e8e6045a3cdb1704820fbe",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "gigar",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "808f18240e58f3e489f3df9d5834a627",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "goms",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "9dbb89fc9b0f9904b98f362042a52646",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "hansi",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "16bb3f4960fca5644872088e9c1b077d",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "hardy",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "78a3f3ae1b1899c43a39aa0316fb0a05",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "hastur",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "3377b8d148c8fb543aff811788c3529b",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "hector",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "266919e05f7ba824ab1118d0b1be527e",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "jasper",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "6c65cd9a2b93ea0438d4d659d727b026",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "jimmy",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "dc77038142a079e488430ab4e96c7cf4",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "ken",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "27362a70b24779a4c9a0d52ec153b586",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "kin",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "0babf03d16c699a4ca8268c24a32eeca",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "kurt",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "597422dcbea064449b7055d6aa271548",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "lark",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "64a99a1cd0d898247a043b21adfe610f",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "lorenz",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "f230bb80c68ffe443a2fada402c34f92",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "luca",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "d22c25f721a6abc458d7cf150eb6e83b",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "ludolf",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "406a9a33bf13a2f4d9838c17e190efdf",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "manny",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "3e842cbb14419a94dbf295ff237e938e",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "mark",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "19314a89a9c07ad4999a386977f3a3b1",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "mia",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "cce6667c055017344beb2381981e0afd",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "mocka",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "41d9f7939055db14c8903c5aff93f812",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "moh",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "c5e7176748fc4eb4c9433ba8d8cb03c0",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "mort",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "56e9e4aaba64f0b4da846510abad6256",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "nephila",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "c31788832a3bb6d4a9b8339829708c1e",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "noir",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "5dcd759d8cb345449808dc3d54749550",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "nonora",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "483d622a2e7065f4593256b3f3f45aad",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "astra",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "dd76f89bf3336094db18048b4c8c4af6",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "nova",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "063a7b3536113f74cb04c33eba7aa446",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "nox",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "22a32ff079cc5bf48a06aa35ffadcd52",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "oak",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "3a1bfda755441044bb603e659dec089f",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "ora",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "109d1e0d5b98d78419e8e2ce554ba1eb",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "peter",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "d8fdc63edab63d847b66040d0eb90383",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "ridley",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "e6a7c603e72b55345a8fb13b8775d050",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "rock",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "4e0d48a49ccb4914b8e07aea6096a4ed",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "samson",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "80512421893837045991c223484a973b",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "woful",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "d28e3b750b753b24895f81b0c0079ca7",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "sheep",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "07303a6abff00bc4d9d90806939ab7c8",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "sirmauz",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "be093700906ae6f4985dd38806635be5",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "squamata",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "b2be01b8690ba1a46a058552b0120113",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "ted",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "5a0b308453bb6cb43a98dd999545ef71",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "telex",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "eea680d494d9780478ad73a1b0a57869",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "thehand",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "0ef838b8a7b70f249a69e7a4779bbf70",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "togarus",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "7d55234914694c143a3f2d6c16c3f5f2",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "ulf",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "326a8e2e25dd4084ea16d0d95d81c32a",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "uoy",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "3b74e5cbe1c037e4a87ee5c115a68eef",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "victoria",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "fb10b2c4e0dfd0848a8bf433266af5c8",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "wanwan",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "6b8d505bb07b17b4e9b932cc57065ce7",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "winfred",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "2c0e97931baf5e54591612930a374189",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "zenia",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "901a68f0898334948a8c861f588cf994",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "error",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "4e0d48a49ccb4914b8e07aea6096a4ed",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "antiphil",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "a9a6681a4ca7e2348a73b15808e9deae",
+                    "type": 3
+                }
+            },
+            {
+                "Id": "phil",
+                "Type": 1,
+                "Asset": {
+                    "fileID": 2800000,
+                    "guid": "c868e1ab082b5734b896f321494de4d5",
+                    "type": 3
+                }
+            }
+        ]
+    }
+}
