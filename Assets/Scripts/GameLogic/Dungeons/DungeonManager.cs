@@ -37,13 +37,10 @@ public class DungeonManager : MonoBehaviour
             return true;
         return false;
     }
-    //public Transform playerParty;
 
     private bool AutoPLay = true;
     public float AutoPlayWaitTimeSec = 1.0f;
 
-    
-    // Start is called before the first frame update
     void OnEnable()
     {        
         StartCoroutine(AutoplayRoutine());
@@ -52,16 +49,6 @@ public class DungeonManager : MonoBehaviour
     private void OnDisable()
     {        
         StopCoroutine(AutoplayRoutine());
-    }
-
-    public void StartDungeonRun()
-    {
-        //utilizes one of the daily dungeons. creates a dungeonRun and a calculated dungeonRun
-    }
-
-    public void ProceedDungeonRun()
-    {
-        //utilizes saved dungeonRun object to recreate dungeonRun
     }
 
     public void ShowDungeonLayout(int _dailyDungeonIndex)
@@ -118,7 +105,6 @@ public class DungeonManager : MonoBehaviour
             if (DateTime.Parse(DatabaseManager._instance.dungeonData.dailyDungeons[0].date).ToUniversalTime().Date == DateTime.Now.ToUniversalTime().Date)
             {
                 Debug.Log("Current daily dungeons are still valid");
-                //if (DatabaseManager._instance.dungeonData.dailyDungeons[0].dungeonLayout == null)
                 InitDungeonLayouts();
                 return;
             }
@@ -151,7 +137,6 @@ public class DungeonManager : MonoBehaviour
         DatabaseManager._instance.dungeonData.dailyDungeons = tempList.ToArray();
         DatabaseManager._instance.SaveGameDataLocally();
         InitDungeonLayouts();
-        //probably try to save data online
     }
 
     public void InitDungeonLayouts()
@@ -166,7 +151,7 @@ public class DungeonManager : MonoBehaviour
     public DungeonRun CreateDungeonRun(int _dailyDungeon)
     {        
         DungeonRun result = null;
-        List<PlayerHero> chosenParty = new List<PlayerHero>(); // overhaul later
+        List<PlayerHero> chosenParty = new List<PlayerHero>();
         foreach (PlayerHero hero in DatabaseManager._instance.activePlayerData.inventory)
         {
             if (hero.status == HeroStatus.Exploring)
@@ -219,7 +204,6 @@ public class DungeonManager : MonoBehaviour
     {
         events = false;
         currentCalcRun = null;
-        //UnityEngine.Random.InitState(DatabaseManager._instance.dungeonData.currentRun.dungeonSeed);
         StartCalcRun();
         if (_targetStep > DatabaseManager._instance.dungeonData.currentRun.maxSteps)
             _targetStep = DatabaseManager._instance.dungeonData.currentRun.maxSteps;
@@ -229,7 +213,6 @@ public class DungeonManager : MonoBehaviour
             NextStepRun();
         }
         events = true;
-        //UnityEngine.Random.InitState((int)DateTime.Now.ToUniversalTime().Ticks);
     }
 
     public void RevalidateMaxStepsAndRandomNums()
@@ -245,7 +228,6 @@ public class DungeonManager : MonoBehaviour
         currentCalcRun = null;
 
         currentCalcRun = new CalculatedDungeonRun(DatabaseManager._instance.dungeonData.currentRun);
-        //playerParty.position = DatabaseManager._instance.dungeonData.currentRun.dungeon.dungeonLayout.startNode.transform.position;
         DatabaseManager._instance.dungeonData.currentRun.dungeon.dungeonLayout.SetupDungeonRunSeed(DatabaseManager._instance.dungeonData.currentRun.dungeonSeed);
         DatabaseManager._instance.dungeonData.currentRun.dungeon.dungeonLayout.ResetNodes();
         UnityEngine.Random.InitState(DatabaseManager._instance.dungeonData.currentRun.dungeonSeed);
@@ -272,7 +254,6 @@ public class DungeonManager : MonoBehaviour
         DatabaseManager._instance.dungeonData.currentRun.dungeon.dungeonLayout.SetupDungeonRunSeed(DatabaseManager._instance.dungeonData.currentRun.dungeonSeed);
         currentCalcRun = new CalculatedDungeonRun(DatabaseManager._instance.dungeonData.currentRun);
         EnterNewActivityState(DungeonActivity.startQuest, false);
-        //playerParty.position = DatabaseManager._instance.dungeonData.currentRun.dungeon.dungeonLayout.startNode.transform.position;
     }
 
     void StepCalcRun()
@@ -310,7 +291,6 @@ public class DungeonManager : MonoBehaviour
 
     void EnterNewActivityState(DungeonActivity _newActivity, bool _doExit = true)
     {
-        //Debug.Log(_newActivity.ToString() + " | Step: " + currentCalcRun.currentStep.ToString());
         if (_doExit)
         {
             //Exit behavior if necessary
@@ -334,7 +314,6 @@ public class DungeonManager : MonoBehaviour
                     break;
             }
         }
-
 
         //currently flat 20 steps per interaction
         currentCalcRun.SetActivitySteps(DatabaseManager._instance.eventData.eventSteps.fallBack);
@@ -377,15 +356,11 @@ public class DungeonManager : MonoBehaviour
                 CameraMover.SetTargetPos(currentCalcRun.currentNode.PathPosition(currentCalcRun.currentNode.chosenPathIndex));
                 currentCalcRun.SetActivitySteps(DatabaseManager._instance.eventData.eventSteps.pathHandling);
                 currentCalcRun.UpdateLog(DatabaseManager._instance.eventData.textFlavours.GetRandomPathHandlingText(currentCalcRun.currentNode.nextPaths[currentCalcRun.currentNode.chosenPathIndex]));
-                //playerParty.position = currentCalcRun.currentNode.PathPosition(currentCalcRun.currentNode.chosenPathIndex);
                 break;
             case DungeonActivity.pathChoosing:
                 currentCalcRun.SetActivitySteps(DatabaseManager._instance.eventData.eventSteps.pathChoosing);
                 currentCalcRun.currentNode.chosenPathIndex = DoPathChoosing();
                 currentCalcRun.UpdateLog(DatabaseManager._instance.eventData.textFlavours.GetRandomPathChoosingText(currentCalcRun.currentNode.nextPaths[currentCalcRun.currentNode.chosenPathIndex]));
-                //string text = "#Hero tut stuff";
-                //text = text.Replace("#Hero", DatabaseManager._instance.dungeonData.currentRun.party[DungeonManager._instance.currentCalcRun.nextHero].heroId);
-                //currentCalcRun.UpdateLog(text);
                 break;
             case DungeonActivity.startQuest:
                 CameraMover.SetTargetPos(DatabaseManager._instance.dungeonData.currentRun.dungeon.dungeonLayout.startNode.transform.position);
@@ -504,7 +479,6 @@ public class DungeonManager : MonoBehaviour
                     {
                         case "physical":
                             currentCalcRun.currentNode.eventHealth -= DatabaseManager._instance.dungeonData.currentRun.party[currentCalcRun.nextHero].pVal;
-                            //currentCalcRun.UpdateLog(DatabaseManager._instance.dungeonData.currentRun.party[currentCalcRun.nextHero].heroId + " dealt " + DatabaseManager._instance.dungeonData.currentRun.party[currentCalcRun.nextHero].pVal.ToString() + " physical Damage");
                             break;
                         case "magical":
                             currentCalcRun.currentNode.eventHealth -= DatabaseManager._instance.dungeonData.currentRun.party[currentCalcRun.nextHero].mVal;
@@ -542,8 +516,7 @@ public class DungeonManager : MonoBehaviour
         }
         else
         {
-            currentCalcRun.currentNode = currentCalcRun.currentNode.nextNodes[currentCalcRun.currentNode.chosenPathIndex]; 
-            //playerParty.position = currentCalcRun.currentNode.transform.position;
+            currentCalcRun.currentNode = currentCalcRun.currentNode.nextNodes[currentCalcRun.currentNode.chosenPathIndex];
             if(currentCalcRun.currentNode.nextNodes == null || currentCalcRun.currentNode.nextNodes.Length <= 0)
             {
                 EnterNewActivityState(DungeonActivity.endQuest);
@@ -589,7 +562,6 @@ public class DungeonManager : MonoBehaviour
         else if(!currentCalcRun.ended)
         {
             currentCalcRun.ended = true;
-            //DatabaseManager._instance.dungeonData.currentRun.valid = false;
             DatabaseManager._instance.SaveGameDataLocally();
             Debug.Log("Run Ended");
             if (events)
@@ -597,8 +569,6 @@ public class DungeonManager : MonoBehaviour
                 AudioManager.PlayEffect("done");
                 DeleventSystem.dungeonRunFinished?.Invoke();
             }
-            
-            //Debug.LogError("Finished Boiiii");
         }
     }
 
@@ -608,7 +578,6 @@ public class DungeonManager : MonoBehaviour
     {
         foreach (var hero in DatabaseManager._instance.dungeonData.currentRun.party)
         {
-            //hero.ApplyGrowth(currentCalcRun.pStatGrowth, currentCalcRun.mStatGrowth, currentCalcRun.sStatGrowth);
             hero.ApplyGrowth(currentCalcRun.pStatGrowth, currentCalcRun.mStatGrowth, currentCalcRun.sStatGrowth);
             hero.runs += 1;
             hero.status = HeroStatus.Idle;
@@ -631,10 +600,6 @@ public class DungeonManager : MonoBehaviour
             if (DatabaseManager._instance.activePlayerData.shards >= 5)
                 DatabaseManager._instance.activePlayerData.shards = 5;
         }
-        else
-        {
-            //You dont get any shards haha
-        }
     }
 
     public void EventRewardHeroHandling()
@@ -645,7 +610,6 @@ public class DungeonManager : MonoBehaviour
             //integer division rounds down but we want it to go up
             rewardTier += 1;
         }
-        //do something with the reward tier but for now just let it get you a random hero
         rewardHero = HeroCreator.GetHeroByRewardTier(rewardTier);
         
     }

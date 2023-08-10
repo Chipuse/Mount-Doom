@@ -9,7 +9,6 @@ using TMPro;
 public class ServerCommunicationManager : MonoBehaviour
 {
     public static ServerCommunicationManager _instance;
-    // Start is called before the first frame update
     void Awake()
     {
         if (_instance == null)
@@ -39,7 +38,6 @@ public class ServerCommunicationManager : MonoBehaviour
     float waitTimer = 0.0f;
     float waitTime = 30.0f;
 
-    // Update is called once per frame
     void Update()
     {
         if (_webRequest != null && _webRequest.isDone && !Imported)
@@ -54,12 +52,6 @@ public class ServerCommunicationManager : MonoBehaviour
             PopRequestQueue();
         }
         waitTimer += Time.deltaTime;
-        if(waitTimer >= waitTime && _webRequest != null && !Imported && webRequestQueue.Count > 0)
-        {
-            //retry last Message
-            //Debug.LogWarning("Retry sending message. TimeOut");
-            //PopRequestQueue();
-        }
     }
 
     private void CheckForImportRequestEnd()
@@ -133,7 +125,6 @@ public class ServerCommunicationManager : MonoBehaviour
         string message = _webRequest.downloadHandler.text;
         //ToDO! more length for the requestmarker!!! maybe check where the first non numeric symbol is ('{' maybe?)
         string requestMarker = message.Split('{')[0];
-        //string requestMarker = message.Substring(0, 1);
         lastMessage = message.Remove(0, requestMarker.Length);
         int requestTypeInt;
         if (!Int32.TryParse(requestMarker, out requestTypeInt))
@@ -141,27 +132,18 @@ public class ServerCommunicationManager : MonoBehaviour
         Request requestType = (Request)Int32.Parse(requestMarker);
         _webRequest = null;
         Imported = true;
-        //Debug.Log(lastMessage);
         switch (requestType)
         {
             case Request.Error:
                 ErrorHandling(lastMessage);
                 break;
             case Request.SignUp:
-                //start game
-                //create new userprofil with data given
-                //tutorials + first hero
-                //DatabaseManager._instance.UpdateActivePlayerFromServer(lastMessage);
                 break;
-            case Request.SignIn:
-                //get user profil
-                //if time stamp on online profile is newer than local discard local data and reapply online data                
+            case Request.SignIn:            
                 break;
             case Request.GetPlayerData:
-                // generically download a specified user profile for diverse use cases
                 break;
             case Request.DownloadHeroList:
-                //download the default hero list and replace local copy
                 DatabaseManager._instance.UpdateDefaultHeroListFromServer(lastMessage);
                 break;
             case Request.DownloadEventData:
@@ -198,7 +180,6 @@ public class ServerCommunicationManager : MonoBehaviour
                 DatabaseManager._instance.UpdateGlobalDataFromServer(lastMessage);
                 break;
             case Request.pushDexEntries:
-                //DatabaseManager._instance.UpdateGlobalDataFromServer(lastMessage);
                 break;
             case Request.getPlotData:
                 if(ClusterAnalysis._instance != null)
@@ -210,7 +191,7 @@ public class ServerCommunicationManager : MonoBehaviour
                 break;
         }
         WebRequestInstance _temp = webRequestQueue[0];
-        webRequestQueue.RemoveAt(0); //in case one of the functions throw an error i want to ´still remove the message
+        webRequestQueue.RemoveAt(0); //in case one of the functions throw an error i want to still remove the message
         if (_temp.simpleEvent != null)
         {
             _temp.simpleEvent();
@@ -319,7 +300,6 @@ public class ServerCommunicationManager : MonoBehaviour
         {
             Debug.LogError("Attention. URL Might be too long!!! " + _request.ToString() + " length: " + parameters.Length.ToString());
         }
-        //check for message length?
         WebRequestInstance _temp = new WebRequestInstance{jsonText = JsonPackage, request = UnityWebRequest.Get(_URL + parameters), requestType = _request, waitForAnswer = true, simpleEvent = _simpleEvent, messageEvent = _messageEvent};
         webRequestQueue.Add(_temp);        
     }
@@ -332,7 +312,6 @@ public class ServerCommunicationManager : MonoBehaviour
         }
         ServerRequest newRequest = new ServerRequest { request = Request.DownloadHeroList, jsonData = _message };
         var JsonPackage = JsonUtility.ToJson(newRequest);
-        //check for message length?
         WWWForm form = new WWWForm();
         form.AddField("data", JsonPackage);
         WebRequestInstance _temp = new WebRequestInstance { jsonText = JsonPackage, request = UnityWebRequest.Post(_URL, form), requestType = _request, waitForAnswer = false };
@@ -346,7 +325,7 @@ public class ServerCommunicationManager : MonoBehaviour
             case Request.Error:
                 break;
             case Request.SignUp:
-                //CAn not be called from here siince the new username and pw are likely not in the database
+                //Can not be called from here since the new username and pw are likely not in the database
                 ServerCommunicationManager._instance.GetInfo(Request.SignUp, JsonUtility.ToJson(new LoginInfo { playerId = DatabaseManager._instance.activePlayerData.playerId, password = DatabaseManager._instance.activePlayerData.password }), _simpleEvent, _messageEvent);
                 break;
             case Request.SignIn:
@@ -354,7 +333,6 @@ public class ServerCommunicationManager : MonoBehaviour
                 ServerCommunicationManager._instance.GetInfo(Request.SignIn, JsonUtility.ToJson(new LoginInfo { playerId = DatabaseManager._instance.activePlayerData.playerId, password = DatabaseManager._instance.activePlayerData.password }), _simpleEvent, _messageEvent);
                 break;
             case Request.GetPlayerData:
-                //ToDo implement da shit
                 break;
             case Request.DownloadHeroList:
                 ServerCommunicationManager._instance.GetInfo(Request.DownloadHeroList, "", _simpleEvent, _messageEvent);
@@ -363,7 +341,6 @@ public class ServerCommunicationManager : MonoBehaviour
                 ServerCommunicationManager._instance.GetInfo(Request.DownloadEventData, "", _simpleEvent, _messageEvent);
                 break;
             case Request.PushPlayerData:
-                //ToDO: Decouple PlayerData from Inventory
                 DoServerRequest(Request.PushInventory);
                 DatabaseManager._instance.activePlayerData.lastUpdate = DateTime.Now.ToUniversalTime().ToString("u");
                 DatabaseManager._instance.SaveGameDataLocally();
@@ -377,7 +354,6 @@ public class ServerCommunicationManager : MonoBehaviour
                 ServerCommunicationManager._instance.GetInfo(Request.DownloadDungeonData, JsonUtility.ToJson(new LoginInfo { playerId = DatabaseManager._instance.activePlayerData.playerId, password = DatabaseManager._instance.activePlayerData.password }), _simpleEvent, _messageEvent);
                 break;
             case Request.PushInventory:
-                //ToDo: Splitted into multiple Requests
                 List<UploadInventoryEntry> entries = new List<UploadInventoryEntry>();
                 for (int i = 0; i < DatabaseManager._instance.activePlayerData.inventory.Count; i++)
                 {
@@ -400,30 +376,23 @@ public class ServerCommunicationManager : MonoBehaviour
                 ServerCommunicationManager._instance.GetInfo(Request.PushInventory, JsonUtility.ToJson(upload), _simpleEvent, _messageEvent);
                 break;
             case Request.PushBlacklist:
-                //ToDo: Splitted into multiple Requests
                 break;
             case Request.PullRewardTable:
                 ServerCommunicationManager._instance.GetInfo(Request.PullRewardTable, "", _simpleEvent, _messageEvent);
-                //ToDo: Splitted into multiple Requests
                 break;
             case Request.UploadOffer:
-                //ToDo
                 break;
             case Request.UpdateOffer:
-                //ToDo
                 break;
             case Request.PullTradeOffers:
-                //ToDo
                 ServerCommunicationManager._instance.GetInfo(Request.PullTradeOffers, "", _simpleEvent, _messageEvent);
                 break;
             case Request.DeleteOffers:
-                //ToDo
                 break;
             case Request.PullGlobalData:
                 ServerCommunicationManager._instance.GetInfo(Request.PullGlobalData, "", _simpleEvent, _messageEvent);
                 break;
             case Request.pushDexEntries:
-                //ServerCommunicationManager._instance.GetInfo(Request.PullGlobalData, "", _simpleEvent, _messageEvent);
                 break;
             case Request.getPlotData:
                 ServerCommunicationManager._instance.GetInfo(Request.getPlotData, "", _simpleEvent, _messageEvent);
